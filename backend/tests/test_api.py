@@ -195,3 +195,16 @@ def test_sample_downloads_and_safe_lookup(client):
     assert response.status_code == 200
     assert len(list(csv.DictReader(io.StringIO(response.text)))) == 28
     assert client.get("/api/samples/unknown.csv").status_code == 404
+
+
+def test_health_accepts_render_host(client):
+    response = client.get(
+        "/api/health",
+        headers={"host": "ledgerly-statement-categorizer.onrender.com"},
+    )
+    assert response.status_code == 200
+
+
+def test_health_rejects_unknown_host(client):
+    response = client.get("/api/health", headers={"host": "untrusted.example"})
+    assert response.status_code == 400

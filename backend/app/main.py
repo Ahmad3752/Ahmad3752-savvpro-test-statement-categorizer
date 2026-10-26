@@ -40,7 +40,8 @@ def create_app(database_path: Path | None = None) -> FastAPI:
         )
     )
     app.add_middleware(
-        TrustedHostMiddleware, allowed_hosts=["localhost", "127.0.0.1", "testserver"]
+        TrustedHostMiddleware,
+        allowed_hosts=["localhost", "127.0.0.1", "testserver", "*.onrender.com"],
     )
 
     @app.middleware("http")
