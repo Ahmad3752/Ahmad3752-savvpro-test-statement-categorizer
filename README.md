@@ -5,6 +5,13 @@ flags uncertain transactions for review, and exports the corrected result.
 
 No API key, account, or external finance service is required. Use fictional data only.
 
+## Live demo
+
+[Open Ledgerly on Render](https://ledgerly-statement-categorizer.onrender.com/)
+
+The public demo uses fictional data. Its local demo database can reset when the
+hosting service restarts, so use the local setup below for persistent review data.
+
 ## Run locally
 
 **Requirements:** Python 3.11+ and Node.js 22+.
